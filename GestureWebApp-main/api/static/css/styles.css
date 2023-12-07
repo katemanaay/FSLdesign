@@ -683,12 +683,18 @@
     padding: 0;
   }
 
+  .imgposition {
+    margin-left: 10%;
+    margin-right: 10%;
+    margin-top: 2%;
+  }
+
   .imgcam {
     position: absolute;
     /*border: 10px solid #000000;*/
     display: block;
-    width: 100%;
-    height: 100%;
+    width: 80%;
+    height: 80%;
   }
   
 
