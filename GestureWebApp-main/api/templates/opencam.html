@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Jost:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+    <!-- Vendor CSS Files -->
+    <link href="static/vendor/aos/aos.css" rel="stylesheet">
+    <link href="static/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="static/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+    <link href="static/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+    <link href="static/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+    <link href="static/vendor/remixicon/remixicon.css" rel="stylesheet">
+    <link href="static/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+    <!-- Template Main CSS File -->
+    <link href="static\css\styles.css" rel="stylesheet">
+</head>
+<body>
+    <div class="imbut-container">
+        <img class="imgcam" id="video_feed">
+        
+        <div id="myModal" class="modal">
+            <div class="modal-content">
+              <span class="close" onclick="closeModal()">&times;</span>
+                <video controls autoplay loop style="width: 100%; height: 100%;" >
+                    <!-- <source src="{{ url_for('static', filename='How_to_sign_Hello.mp4') }}" type="video/mp4"> -->
+                    <source src="{{ url_for('static', filename='How_to_sign_Hello.mp4') }}" type="video/mp4">
+                </video>
+            </div>
+          </div>
+
+        <button class="btn" onclick="showPopup()">Show FSL Sign</button>
+        <button class="btn-startPrediction" onclick="startPrediction()">Start Prediction</button>
+        <button class="btn-stopPrediction" onclick="stopPrediction()">Stop Prediction</button>
+        <button class="btn-toggle_draw" id="toggle_draw" onclick="toggleDrawing()">Toggle Drawing</button>
+    </div>
+
+    <div id="popupContainer" class="popup">
+        <div class="popup-content">
+            <div>
+                <input type="text" class="search-box" id="searchInput" placeholder="Search...">
+            </div>
+            <!-- Clickable choices -->
+            <div class="choices">
+                    <div class="choice" onclick="showVideo()">Hello</div>
+                    <div class="choice" onclick="showVideo()">Good Morning</div>
+                    <div class="choice" onclick="showVideo()">Good Afternoon</div>
+                    <div class="choice" onclick="showVideo()">How are you</div>
+                    <div class="choice" onclick="showVideo()">Thank you</div>
+                    <div class="choice" onclick="showVideo()">I love you</div>
+                    <div class="choice" onclick="showVideo()">Bad</div>
+                    <div class="choice" onclick="showVideo()">Excuse me</div>
+                    <div class="choice" onclick="showVideo()">Sorry</div>
+                    <div class="choice" onclick="showVideo()">What</div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        var popupVisible = false;
+    
+        function startPrediction() {
+            var img = document.getElementById('video_feed');
+            img.src = "{{ url_for('video_feed', predds='show') }}" + "&" + new Date().getTime();
+        }
+    
+        function stopPrediction() {
+            var img = document.getElementById('video_feed');
+            img.src = "{{ url_for('video_feed') }}?predds=stop&" + new Date().getTime();
+        }
+    
+        function toggleDrawing() {
+            var toggleButton = document.getElementById('toggle_draw');
+            var img = document.getElementById('video_feed');
+            if (toggleButton.textContent === 'Toggle Drawing') {
+                toggleButton.textContent = 'Disable Drawing';
+                img.src = "{{ url_for('video_feed', draw='True') }}" + "&" + new Date().getTime();
+            } else {
+                toggleButton.textContent = 'Toggle Drawing';
+                img.src = "{{ url_for('video_feed', draw='False') }}" + "&" + new Date().getTime();
+            }
+        }
+    
+        function showPopup() {
+            var popup = document.getElementById('popupContainer');
+            popupVisible = !popupVisible; // Toggle the popup visibility
+            popup.style.display = popupVisible ? 'flex' : 'none'; // Display or hide the popup
+        }
+    
+        function showVideo() {
+            var modal = document.getElementById('myModal');
+            var video = modal.querySelector('video'); // Get the video element
+            popupVisible = !popupVisible
+    
+            // Show the modal
+            modal.style.display = 'block';
+    
+            // Pause and reset the video to the beginning
+            video.pause();
+            video.currentTime = 0;
+    
+            // Play the video
+            video.play();
+    
+            closePopupContainer(); // Close the popup container
+        }
+    
+        // Function to close the modal
+        function closeModal() {
+            var modal = document.getElementById('myModal');
+            modal.style.display = 'none'; // Hide the modal
+        }
+    
+        // Function to handle the selection of choices
+        function selectChoice(choiceText) {
+            var greetingElement = document.querySelector('.greeting-content');
+            greetingElement.innerHTML = 'You selected: ' + choiceText;
+    
+            if (choiceText === 'Hello') {
+                showVideo(); // Call the showVideo function when "Hello" is selected
+            }
+        }
+    
+        function closePopupContainer() {
+            var popupContainer = document.getElementById('popupContainer');
+            popupContainer.style.display = 'none';
+        }
+    
+        var searchInput = document.getElementById('searchInput');
+        searchInput.addEventListener('input', function () {
+            var searchValue = searchInput.value.toLowerCase(); // Get the lowercase search input text
+    
+            // Get all the choice elements
+            var choices = document.querySelectorAll('.choice');
+    
+            // Loop through the choices and show/hide them based on the search text
+            choices.forEach(function (choice) {
+                var choiceText = choice.textContent.toLowerCase();
+                if (choiceText.includes(searchValue)) {
+                    choice.style.display = 'block'; // Show the choice
+                } else {
+                    choice.style.display = 'none'; // Hide the choice
+                }
+            });
+        });
+    </script>
+    
+</body>
+</html>
