@@ -696,7 +696,7 @@
     width: 80%;
     height: 80%;
   }
-  
+
 
   button:hover {
     background-color: #4caf50; /* Green */
@@ -711,16 +711,17 @@
 
   .btn {
     position: absolute;
-    top: 85%;
+    top: 90%;
     left: 10%;
     background-color: #3498db;
     color: white;
-    border: 1.5px solid black;
+    border: 3px solid rgb(238, 236, 236);
     padding: 10px 20px;
     font-size: 20px;
     cursor: pointer;
     margin: 3px;
-    border-radius: 5px;
+    margin-left: 8%;
+    border-radius: 12px;
     font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
   }
 
@@ -731,46 +732,49 @@
 
   .btn-startPrediction {
     position: absolute;
-    top: 85%;
+    top: 90%;
     left: 32%;
     background-color: #3498db;
     color: white;
-    border: 1.5px solid black;
+    border: 3px solid rgb(238, 236, 236);
     padding: 10px 20px;
     font-size: 20px;
     cursor: pointer;
     margin: 3px;
-    border-radius: 5px;
+    margin-left: 3%;
+    border-radius:12px;
     font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
   }
 
   .btn-stopPrediction {
     position: absolute;
-    top: 85%;
+    top: 90%;
     left: 55%;
     background-color: #3498db;
     color: white;
-    border: 1.5px solid black;
+    border: 3px solid rgb(238, 236, 236);
     padding: 10px 20px;
     font-size: 20px;
     cursor: pointer;
     margin: 3px;
-    border-radius: 5px;
+    margin-left: -1%;
+    border-radius: 12px;
     font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
   }
 
   .btn-toggle_draw {
     position: absolute;
-    top: 85%;
+    top: 90%;
     left: 78%;
     background-color: #3498db;
     color: white;
-    border: 1.5px solid black;
+    border: 3px solid rgb(238, 236, 236);
     padding: 10px 20px;
     font-size: 20px;
     cursor: pointer;
     margin: 3px;
-    border-radius: 5px;
+    margin-left: -6%;
+    border-radius: 12px;
   }
 
   .styled-image {
