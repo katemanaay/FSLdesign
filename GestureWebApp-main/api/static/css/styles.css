@@ -494,7 +494,7 @@
     font-size: 20px;
     cursor: pointer;
     margin: 3px;
-    border-radius: 5px;
+    border-radius: 12px;
     font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
   }
 
@@ -514,7 +514,7 @@
     font-size: 20px;
     cursor: pointer;
     margin: 3px;
-    border-radius: 5px;
+    border-radius: 12px;
     font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
   }
 
@@ -529,7 +529,7 @@
     font-size: 20px;
     cursor: pointer;
     margin: 3px;
-    border-radius: 5px;
+    border-radius: 12px;
     font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
   }
 
@@ -545,7 +545,7 @@
     cursor: pointer;
     margin: 3px;
     margin-left: -1.5%;
-    border-radius: 5px;
+    border-radius: 12px;
   }
 
   .styled-image {
@@ -582,7 +582,11 @@
     justify-content: center;
     align-items: center;
     z-index: 9999;
-    border: 3px #000;
+    box-sizing: border-box; /* Include padding and border in the element's total width and height */
+    padding: 20px; /* Example padding */
+    box-shadow: 0 0 40px rgba(0, 0, 0, 0); /* Adjust the blur value (20px) to change shadow size */
+
+}
     
   }
 
@@ -671,7 +675,7 @@
   .close:hover {
     color: #000;
   }
-}
+
 
 @media (min-width: 1920px) {
   body {
@@ -816,9 +820,6 @@
     justify-content: center;
     align-items: center;
     z-index: 9999;
-  }
-  .popupContainer {
-  border-radius: 3px solid #0000;
   }
 
   .popup-content {
