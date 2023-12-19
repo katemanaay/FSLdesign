@@ -24,6 +24,7 @@
 <!-- ... (your existing HTML code) ... -->
 
     <div class="imbut-container">
+        <button class="btn-back" onclick="gooToHomePage()">Back</button>
         <div class="imgposition">
             <img class="imgcam" id="video_feed">
         </div>
@@ -178,6 +179,13 @@
         function closePopupContainer() {
             var popupContainer = document.getElementById('popupContainer');
             popupContainer.style.display = 'none';
+        }
+
+        //Function to go back to the home page
+        function goToHomePage() {
+            //Adjust the URL as needed for your home page
+            window.location.href= "/"; 
+            
         }
             });
         });
