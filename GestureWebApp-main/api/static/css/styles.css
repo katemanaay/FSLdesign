@@ -577,8 +577,8 @@
     position: center;
     margin-top: 1%;
     top: 5%;
-    left: 38.5%;
-    width: 30%; /* Adjust the width as needed */
+    left: 25%;
+    width: 70%; /* Adjust the width as needed */
     height: 68%;
     justify-content: center;
     align-items: center;
@@ -596,7 +596,7 @@
     background-color: #fff;
     padding: 20px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    text-align: center;
+    text-align: justify;
     position: absolute;
     top: 0;
     left: 0;
@@ -620,7 +620,7 @@
   .choices {
     display: flex;
     flex-wrap: wrap;
-    margin-top: 10px;
+    margin-top: 2px;
   }
 
   .choice {
@@ -630,10 +630,10 @@
     border-radius: 5px;
     background-color: #f5f5f5;
     transition: background-color 0.3s;
-    width: 100%; /* Adjust width as needed */
-    height: 100%;
+    width: 20%; /* Adjust width as needed */
+    height: 10%;
     box-sizing: border-box;
-    margin: 5%;
+    margin: 2%;
     position: center;
   }
 
