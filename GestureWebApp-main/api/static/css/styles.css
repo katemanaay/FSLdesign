@@ -178,14 +178,25 @@
     color: #f00; /* Change color on hover if desired */
   }
 
+    .search-container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 10px;
+    }
+
+
+  }
   /* Styles for the search box */
   .search-box {
     height: 100%;
     padding: 10px;
+    position: center;
     margin-bottom: 10px;
     border: 1px solid #ccc;
     border-radius: 10px;
-    width: 90%;
+    width: 70%;
+    margin-right: -10%;
   }
 
 
