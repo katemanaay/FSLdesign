@@ -1,29 +1,27 @@
-function showVideo(videoFileName) {
-    var modal = document.getElementById('myModal');
-    var videoSource = document.getElementById('videoSource');
+function showVideo(videoName) {
+    var videoSource = '';
 
-    // Define the directory where your videos are stored (adjust this path according to your file structure)
-    var videoDirectory = "C:\designfsl\FSLdesign\GestureWebApp-main\api\static";
-
-    // Set the source of the video dynamically based on the choice selected
-    videoSource.src = videoDirectory + videoFileName;
+    // Assign the video source based on the clicked choice
+    if (videoName === 'OO_1') {
+        videoSource = 'OO_1.mp4'; // Replace 'video1.mp4' with the actual video source for 'OO'
+    } else if (videoName === 'video2') {
+        videoSource = 'video2.mp4'; // Replace 'video2.mp4' with the actual video source for 'Ano?'
+    } else if (videoName === 'videoN') {
+        videoSource = 'videoN.mp4'; // Replace 'videoN.mp4' with the actual video source for 'Pakiusap, pabagalin mo'
+    }
     
-    // Update the video player with the new source
-    var videoPlayer = document.getElementById('videoPlayer');
-    videoPlayer.load();
+    // Modify this part to display the video as needed
+    // For example, you can use HTML5 <video> tag or display it in a modal
+    // Here is an example using HTML5 <video> tag
+    var videoElement = document.createElement('video');
+    videoElement.setAttribute('controls', 'true');
+    videoElement.setAttribute('autoplay', 'true');
+    videoElement.style.width = '100%'; // Adjust video width as needed
+    videoElement.style.height = 'auto'; // Adjust video height as needed
+    videoElement.innerHTML = `<source src="${videoSource}" type="video/mp4">`;
 
-    // Show the modal
-    modal.style.display = 'block';
+    // Replace the existing content or append it to a specific element
+    var videoContainer = document.getElementById('videoContainer'); // Change 'videoContainer' to your specific container ID
+    videoContainer.innerHTML = ''; // Clear previous video
+    videoContainer.appendChild(videoElement); // Append the new video
 }
-
-// Example function calls
-// These function calls should correspond to your choices with respective video file names
-function showVideoChoice1() {
-    showVideo('OO_1.mp4'); // Change 'video1.mp4' to the actual file name for choice 1
-}
-
-function showVideoChoice2() {
-    showVideo('Ano_1.mp4'); // Change 'video2.mp4' to the actual file name for choice 2
-}
-
-// Add more similar functions for other choices as needed...
