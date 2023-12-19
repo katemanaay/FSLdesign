@@ -23,8 +23,6 @@
     
 <!-- ... (your existing HTML code) ... -->
 
-<body>
-
     <div class="imbut-container">
         <div class="imgposition">
             <img class="imgcam" id="video_feed">
@@ -49,7 +47,9 @@
 
     <div id="popupContainer" class="popup">
         <div class="popup-content">
-            <div>
+              <!-- Add an "x" button to close the popup -->
+              <button class="close-button" onclick="closePopupContainer()">X</button>
+            <div>  
                 <input type="text" class="search-box" id="searchInput" placeholder="Search...">
             </div>
             <!-- Clickable choices -->
@@ -173,6 +173,12 @@
                 } else {
                     choice.style.display = 'none'; // Hide the choice
                 }
+
+                 // Function to close the popup container
+        function closePopupContainer() {
+            var popupContainer = document.getElementById('popupContainer');
+            popupContainer.style.display = 'none';
+        }
             });
         });
     </script>

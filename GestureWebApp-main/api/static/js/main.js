@@ -173,6 +173,14 @@
   });
 
   /**
+   * Function to close the popup container
+   */
+  function closePopupContainer() {
+    var popupContainer = document.getElementById('popupContainer');
+    popupContainer.style.display = 'none';
+  }
+  
+  /**
    * Skills animation
    */
   let skilsContent = select('.skills-content');
@@ -243,6 +251,14 @@
     }
   });
 
+/**
+ * Close popup function
+ */
+function closePopup() {
+  var popupContainer = document.getElementById('popupContainer');
+  popupContainer.style.display = 'none';
+}
+
   /**
    * Animation on scroll
    */
@@ -253,7 +269,6 @@
       once: true,
       mirror: false
     });
-    
   });
 
-})()
+})();
